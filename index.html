@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#F5F5FC">
+  <title>Nutricionista BioLink</title>
+  <meta name="description" content="Nutricionista BioLink - Bio Link">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=sans-serif:wght@400;600;700&family=sans-serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { min-height: 100vh; min-height: 100dvh; background-color: #F5F5FC;  font-family: 'sans-serif', sans-serif; color: #ffffff; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+.container { max-width: 390px; margin: 0 auto; padding: 16px; min-height: 100vh; min-height: 100dvh; }
+
+.hero-canva { position: relative; width: 100%; }
+.hero-frame { position: relative; width: 100%; overflow: hidden; }
+.hero-bg { width: 100%; height: 100%; min-height: 320px; display: block; object-position: center; }
+.hero-fade { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.hero-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.hero-content { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; justify-content: center; width: 100%; pointer-events: none; }
+.hero-left { align-items: flex-start; text-align: left; padding: 0 24px; }
+.hero-center { align-items: center; text-align: center; padding: 0 24px; }
+.hero-right { align-items: flex-end; text-align: right; padding: 0 24px; }
+.hero-compact { padding-top: 32px; padding-bottom: 32px; }
+.hero-normal { padding-top: 64px; padding-bottom: 64px; }
+.hero-spacious { padding-top: 96px; padding-bottom: 96px; }
+.hero-title { font-family: 'sans-serif', Georgia, serif; font-size: clamp(28px, 8vw, 36px); font-weight: 600; margin-bottom: 12px; line-height: 1.2; }
+.hero-subtitle { font-size: clamp(14px, 4vw, 16px); opacity: 0.9; max-width: 320px; line-height: 1.6; }
+
+.card-split { display: flex; overflow: hidden; position: relative; }
+.card-split.no-image { display: block; }
+.card-imageLeft { flex-direction: row; }
+.card-imageRight { flex-direction: row-reverse; }
+.card-image-wrapper { position: relative; width: 40%; aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; }
+.card-image { width: 100%; height: 100%; display: block; }
+.card-image-fade { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.card-content { flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.card-content.full-width { width: 100%; }
+.card-title { font-family: 'sans-serif', Georgia, serif; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.card-desc { font-size: 12px; color: #DADADA; margin-bottom: 12px; white-space: pre-wrap; word-break: break-word; }
+.card-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; transition: all 0.2s ease; border: none; flex-shrink: 0; align-self: flex-start; }
+.card-button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+.cta-whatsapp { display: flex; align-items: center; gap: 16px; margin: 16px 12px; padding: 16px; background: #FFFFFF; border-radius: 16px; }
+.cta-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: white; }
+.cta-icon img { width: 28px; height: 28px; object-fit: contain; }
+.cta-icon svg { width: 24px; height: 24px; }
+.cta-content { flex: 1; min-width: 0; }
+.cta-content h4 { font-family: 'sans-serif', Georgia, serif; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.cta-content p { font-size: 12px; color: #DADADA; }
+.cta-button { padding: 12px 16px; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border-radius: 8px; font-size: 11px; font-weight: 600; text-transform: uppercase; white-space: nowrap; transition: all 0.2s ease; flex-shrink: 0; }
+.cta-button:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35); }
+
+.faq-accordion { margin: 16px 12px; }
+.faq-item { transition: all 0.2s ease; }
+.faq-question { width: 100%; padding: 16px; background: none; border: none; font-family: 'sans-serif', Georgia, serif; font-size: 14px; font-weight: 600; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: color 0.2s ease; cursor: pointer; }
+.faq-question:hover { opacity: 0.8; }
+.faq-icon { font-size: 20px; font-weight: 300; transition: transform 0.3s ease; flex-shrink: 0; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; }
+.faq-answer p { font-size: 14px; line-height: 1.6; padding: 0 16px; }
+.faq-item.open .faq-answer { max-height: 500px; padding-bottom: 16px; }
+
+.footer { padding: 32px 24px; text-align: center; }
+.footer p { font-size: 12px; color: #DADADA; }
+
+.footer-empty { transition: all 0.2s ease; }
+.footer-empty-link { transition: opacity 0.2s ease; }
+.footer-empty-link:hover { opacity: 0.8; text-decoration: underline; }
+
+.mini-cta-pill { transition: all 0.2s ease; cursor: pointer; }
+.mini-cta-pill:hover { opacity: 0.9; transform: translateY(-1px); }
+
+.image-only-container { transition: all 0.2s ease; }
+.image-only-container:hover { transform: scale(1.01); }
+
+@media (max-width: 480px) {
+  .card-image-wrapper { width: 35%; }
+  .card-content { padding: 12px; }
+}
+
+@media (max-width: 320px) {
+  .card-split:not(.no-image) { flex-direction: column !important; }
+  .card-image-wrapper { width: 100%; height: 160px; aspect-ratio: auto; }
+  .cta-whatsapp { flex-wrap: wrap; }
+  .cta-button { width: 100%; text-align: center; margin-top: 8px; }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="card-split-wrapper" style="position: relative; width: 100%; margin: 12px auto; overflow: visible;">
+      <div class="card-split card-imageLeft" style="background: linear-gradient(to right, #e1c774, #e4a081);  border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); min-height: 140px; position: relative;">
+        
+        
+          <div class="card-image-wrapper">
+            <img src="assets/card-0.jpg" alt="" class="card-image" style="object-fit: contain; object-position: 100% 94%; transform: scale(1.4); transform-origin: 100% 94%; position: relative; z-index: 1; border-radius: 0px;">
+            <div class="card-image-fade" style="background: linear-gradient(to right, transparent 80%, #e3b87a 100%); z-index: 2;"></div>
+          </div>
+        <div class="card-content" style="position: relative; z-index: 3;">
+          <h3 class="card-title" style="color: #FFFFFF">Agendar uma consulta</h3>
+          <p class="card-desc" style="color: #212121">Priorize você. Dê o primeiro passo hoje.</p>
+          <a href="https://example.com" class="card-button" style="background-color: #6A8C7A;  color: #FFFFFF; border-radius: 8px; width: fit-content; max-width: 100%; " target="_blank" rel="noopener noreferrer">Saiba mais</a>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="card-split-wrapper" style="position: relative; width: 100%; margin: 12px auto; overflow: visible;">
+      <div class="card-split card-imageRight" style="background: linear-gradient(to right, #8bd959, #c7e165);  border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); min-height: 140px; position: relative;">
+        
+        
+          <div class="card-image-wrapper">
+            <img src="assets/card-1.jpg" alt="" class="card-image" style="object-fit: cover; object-position: 50% 50%; transform: scale(1); transform-origin: 50% 50%; position: relative; z-index: 1; border-radius: 0px;">
+            <div class="card-image-fade" style="background: linear-gradient(to left, transparent 70%, #afde60 100%); z-index: 2;"></div>
+          </div>
+        <div class="card-content" style="position: relative; z-index: 3;">
+          <h3 class="card-title" style="color: #FFFFFF">Consulta Online</h3>
+          <p class="card-desc" style="color: #212121">Atendimento nutricional no conforto da sua casa</p>
+          <a href="https://example.com" class="card-button" style="background-color: #C16824;  color: #FFFFFF; border-radius: 8px; width: fit-content; max-width: 100%; " target="_blank" rel="noopener noreferrer">Saiba mais</a>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="card-split-wrapper" style="position: relative; width: 100%; margin: 12px auto; overflow: visible;">
+      <div class="card-split card-imageLeft" style="background: linear-gradient(to right, #e2bc78, #e18f8a);  border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); min-height: 140px; position: relative;">
+        
+        
+          <div class="card-image-wrapper">
+            <img src="assets/card-2.jpg" alt="" class="card-image" style="object-fit: contain; object-position: 54% 50%; transform: scale(1.6); transform-origin: 54% 50%; position: relative; z-index: 1; border-radius: 0px;">
+            <div class="card-image-fade" style="background: linear-gradient(to right, transparent 70%, #e1a97f 100%); z-index: 2;"></div>
+          </div>
+        <div class="card-content" style="position: relative; z-index: 3;">
+          <h3 class="card-title" style="color: #FFFFFF">Consulta presencial</h3>
+          <p class="card-desc" style="color: #212121">Atendimento individual em consultório</p>
+          <a href="https://example.com" class="card-button" style="background-color: #6A8C7A;  color: #FFFFFF; border-radius: 8px; width: fit-content; max-width: 100%; " target="_blank" rel="noopener noreferrer">Saiba mais</a>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="card-split-wrapper" style="position: relative; width: 100%; margin: 12px auto; overflow: visible;">
+      <div class="card-split card-imageRight" style="background: linear-gradient(to right, #8cd959, #c4e064);  border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); min-height: 140px; position: relative;">
+        
+        
+          <div class="card-image-wrapper">
+            <img src="assets/card-3.jpg" alt="" class="card-image" style="object-fit: cover; object-position: 51% 50%; transform: scale(1.7); transform-origin: 51% 50%; position: relative; z-index: 1; border-radius: 0px;">
+            <div class="card-image-fade" style="background: linear-gradient(to left, transparent 70%, #acdd5f 100%); z-index: 2;"></div>
+          </div>
+        <div class="card-content" style="position: relative; z-index: 3;">
+          <h3 class="card-title" style="color: #FFFFFF">Plano alimentar</h3>
+          <p class="card-desc" style="color: #212121">Um plano feito para sua rotina, gostos e necessidades</p>
+          <a href="https://example.com" class="card-button" style="background-color: #C16824;  color: #FFFFFF; border-radius: 8px; width: fit-content; max-width: 100%; " target="_blank" rel="noopener noreferrer">Saiba mais</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <script>
+(function() {
+  'use strict';
+  document.querySelectorAll('.faq-item .faq-question').forEach(function(button) {
+    button.addEventListener('click', function() {
+      var item = this.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+  window.carouselState = {};
+  document.querySelectorAll('.carousel-container').forEach(function(c) {
+    var slides = c.querySelectorAll('.carousel-slide');
+    window.carouselState[c.id] = { index: 0, total: slides.length };
+  });
+  window.moveCarousel = function(id, dir) {
+    var s = window.carouselState[id]; if (!s) return;
+    s.index = (s.index + dir + s.total) % s.total;
+    var t = document.querySelector('#' + id + ' .carousel-track');
+    if (t) t.style.transform = 'translateX(-' + (s.index * 100) + '%)';
+    document.querySelectorAll('#' + id + ' .carousel-dots button').forEach(function(d, i) {
+      d.style.background = i === s.index ? 'white' : 'rgba(255,255,255,0.5)';
+    });
+  };
+  window.goToSlide = function(id, idx) {
+    var s = window.carouselState[id]; if (!s) return;
+    s.index = idx;
+    var t = document.querySelector('#' + id + ' .carousel-track');
+    if (t) t.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    document.querySelectorAll('#' + id + ' .carousel-dots button').forEach(function(d, i) {
+      d.style.background = i === idx ? 'white' : 'rgba(255,255,255,0.5)';
+    });
+  };
+  // Autoplay logic for exported carousel
+  document.querySelectorAll('.carousel-container[data-autoplay="true"]').forEach(function(c) {
+    var speed = parseInt(c.getAttribute('data-autoplay-speed')) || 3000;
+    var loop = c.getAttribute('data-loop') === 'true';
+    var slides = c.querySelectorAll('.carousel-slide');
+    if (slides.length <= 1) return;
+    setInterval(function() {
+      var s = window.carouselState[c.id];
+      if (!s) return;
+      if (loop) {
+        s.index = (s.index + 1) % s.total;
+      } else if (s.index < s.total - 1) {
+        s.index++;
+      }
+      var t = c.querySelector('.carousel-track');
+      if (t) t.style.transform = 'translateX(-' + (s.index * 100) + '%)';
+      c.querySelectorAll('.carousel-dots button').forEach(function(d, i) {
+        d.style.background = i === s.index ? 'white' : 'rgba(255,255,255,0.5)';
+      });
+    }, speed);
+  });
+})();
+  </script>
+</body>
+</html>
